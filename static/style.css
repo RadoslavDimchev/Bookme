@@ -76,3 +76,16 @@ h2 {
   padding: 8px 16px;
   margin: 4px;
 }
+
+label {
+  display: block;
+}
+
+.aligned {
+  text-align: right;
+  display: inline-block;
+}
+
+.aligned label>* {
+  margin: 8px 16px;
+}
