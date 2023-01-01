@@ -1,9 +1,9 @@
 const { getAll, getById } = require('../services/accommodationService');
 
-const router = require('express').Router();
+const catalogController = require('express').Router();
 
 
-router.get('/', (req, res) => {
+catalogController.get('/', (req, res) => {
   const search = req.query.search || '';
   const city = req.query.city || '';
   const fromPrice = Number(req.query.fromPrice) || 1;
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:id', (req, res) => {
+catalogController.get('/:id', (req, res) => {
   const id = req.params.id;
   const room = getById(id);
 
@@ -38,4 +38,4 @@ router.get('/:id', (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = catalogController;

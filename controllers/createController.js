@@ -1,15 +1,15 @@
 const { create } = require('../services/accommodationService');
 
-const router = require('express').Router();
+const createController = require('express').Router();
 
 
-router.get('/', (req, res) => {
+createController.get('/', (req, res) => {
   res.render('create', {
     title: 'Host New Accommodation'
   });
 });
 
-router.post('/', async (req, res) => {
+createController.post('/', async (req, res) => {
   try {
     const result = await create(req.body);
     res.redirect('/catalog/' + result.id);
@@ -21,4 +21,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = createController;
