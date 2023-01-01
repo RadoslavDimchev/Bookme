@@ -94,3 +94,12 @@ label {
   width: 300px;
   height: 300px;
 }
+
+a {
+  color: white;
+}
+
+.facility-icon {
+  width: 24px;
+  height: 24px;
+}

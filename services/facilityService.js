@@ -2,17 +2,22 @@ const Facility = require('../models/Facility');
 
 
 async function getAllFacilities() {
-  return Facility.find({});
+  return Facility.find({}).lean();
 }
 
 async function createFacility(label, iconUrl) {
-  return Facility.creare({
+  return Facility.create({
     label,
     iconUrl
   });
 }
 
+async function addFacilities(roomId, facilityId) {
+
+}
+
 module.exports = {
   getAllFacilities,
-  createFacility
+  createFacility,
+  addFacilities
 };
