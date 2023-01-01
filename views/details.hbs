@@ -6,6 +6,11 @@
   <div>
     <img class="img" src="{{imgUrl}}" alt="room image">
   </div>
-  <a href="/facility/{{_id}}/decorateRoom">Edit Faicilities</a>
+  <ul>
+    {{#each facilities}}
+    <li>{{label}} <img class="facility-icon" src="{{iconUrl}}" alt="icon"></li>
+    {{/each}}
+  </ul>
+  <a href="/facility/{{_id}}/decorateRoom">Edit Facilities</a>
   {{/with}}
 </section>

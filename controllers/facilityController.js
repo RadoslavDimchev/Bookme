@@ -26,7 +26,7 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
   const room = await getById(roomId);
   const facilities = await getAllFacilities();
   facilities.forEach(f => {
-    if (room.facilities.some(id => id.toString() === f._id.toString())) {
+    if (room.facilities.some(x => x._id.toString() === f._id.toString())) {
       f.checked = true;
     }
   });
@@ -40,7 +40,7 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
 
 facilityController.post('/:roomId/decorateRoom', async (req, res) => {
   const roomId = req.params.roomId;
-  
+
   await addFacilities(roomId, Object.keys(req.body));
   res.redirect('/facility/' + roomId + '/decorateRoom');
 });

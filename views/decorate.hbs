@@ -9,8 +9,8 @@
     <form action="/facility/{{room._id}}/decorateRoom" method="post">
       <ul>
         {{#each facilities}}
-        <li><label><input type="checkbox" name="{{_id}}" {{#if checked}}checked{{/if}}> {{label}} <img class="facility-icon" src="{{iconUrl}}"
-              alt="icon"></label></li>
+        <li><label><input type="checkbox" name="{{_id}}" {{#if checked}}checked{{/if}}> {{label}} <img
+              class="facility-icon" src="{{iconUrl}}" alt="icon"></label></li>
         {{/each}}
       </ul>
       <button>Confirm Facilities</button>
