@@ -5,6 +5,7 @@
     "description": "Nice view",
     "city": "Sandanski",
     "beds": 2,
-    "price": 100
+    "price": 100,
+    "imgUrl": "../static/assets/room1.jpeg"
   }
 ]

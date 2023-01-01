@@ -34,7 +34,8 @@ async function create(roomData) {
     description: roomData.description,
     city: roomData.city,
     beds: Number(roomData.beds),
-    price: Number(roomData.price)
+    price: Number(roomData.price),
+    imgUrl: roomData.imgUrl
   };
 
   const missing = Object.entries(room).filter(([k, v]) => !v);

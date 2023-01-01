@@ -89,3 +89,8 @@ label {
 .aligned label>* {
   margin: 8px 16px;
 }
+
+.img {
+  width: 300px;
+  height: 300px;
+}
