@@ -1,4 +1,4 @@
-const { create } = require('../services/accommodationService');
+const { create } = require('../services/roomService');
 
 const createController = require('express').Router();
 
