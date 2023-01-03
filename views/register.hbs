@@ -1,5 +1,5 @@
 <section>
-  <h1>Login</h1>
+  <h1>Register</h1>
 
   {{#if error}}
   <div>
@@ -9,10 +9,11 @@
   </div>
   {{/if}}
 
-  <form class="aligned" action="/auth/login" method="post">
+  <form class="aligned" action="/auth/register" method="post">
     <label><span>Username</span><input type="text" name="username"></label>
     <label><span>Password</span><input type="password" name="password"></label>
-    <button>Sigh in</button>
+    <label><span>Repeat</span><input type="password" name="repass"></label>
+    <button>Sign up</button>
   </form>
-  <p>Don't have an account? <a href="/auth/register">Sign up here</a></p>
+  <p>Already have an account? <a href="/auth/login">Sign in here</a></p>
 </section>
