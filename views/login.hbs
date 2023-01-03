@@ -1,0 +1,17 @@
+<section>
+  <h1>Login</h1>
+
+  {{#if error}}
+  <div>
+    {{#each error}}
+    <p>{{this}}</p>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  <form class="aligned" action="/auth/login" method="post">
+    <label><span>Username</span><input type="text" name="username"></label>
+    <label><span>Password</span><input type="password" name="password"></label>
+    <button>Create</button>
+  </form>
+</section>
