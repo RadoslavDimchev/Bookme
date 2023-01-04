@@ -10,14 +10,15 @@ async function register(username, password) {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  await User.create({
+  const user = await User.create({
     username,
     hashedPassword
   });
 
   return {
-    username
-    // roles: user.roles
+    _id: user._id,
+    username,
+    roles: user.roles
   };
 }
 
@@ -34,8 +35,8 @@ async function login(username, password) {
 
   return {
     _id: user._id,
-    username: user.username
-    // roles: user.roles
+    username: user.username,
+    roles: user.roles
   };
 }
 
