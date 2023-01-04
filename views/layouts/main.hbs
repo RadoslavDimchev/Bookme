@@ -15,6 +15,9 @@
       <a href="/">
         <span>Bookme</span>
       </a>
+      {{#if hasUser}}
+      <span>Welcome, {{username}}</span>
+      {{/if}}
       <nav class="nav">
         <ul>
           <li>
