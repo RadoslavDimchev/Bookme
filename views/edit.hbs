@@ -1,0 +1,23 @@
+<section>
+  <h1>Edit Accommodation</h1>
+
+  {{#if error}}
+  <div>
+    {{#each error}}
+    <p>{{this}}</p>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  <form class="aligned" action="/room/{{room._id}}/edit" method="post">
+    {{#with room}}
+    <label><span>Name</span><input type="text" name="name" value="{{name}}"></label>
+    <label><span>City</span><input type="text" name="city" value="{{city}}"></label>
+    <label><span>Beds</span><input type="number" name="beds" value="{{beds}}"></label>
+    <label><span>Price per night</span><input type="number" name="price" value="{{price}}"></label>
+    <label><span>Image URL</span><input type="text" name="imgUrl" value="{{imgUrl}}"></label>
+    <label><span>Description</span><textarea type="text" name="description">{{description}}</textarea></label>
+    <button>Update</button>
+    {{/with}}
+  </form>
+</section>
