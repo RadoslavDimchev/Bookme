@@ -11,7 +11,7 @@ createController.get('/', (req, res) => {
 
 createController.post('/', async (req, res) => {
   try {
-    const result = await create(req.body);
+    const result = await create(req.body, req.user._id);
     res.redirect('/catalog/' + result.id);
   } catch (error) {
     res.render('create', {

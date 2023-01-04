@@ -28,6 +28,10 @@ catalogController.get('/:id', async (req, res) => {
   const id = req.params.id;
   const room = await getById(id);
 
+  if (req.user && req.user._id.toString() === room.owner.toString()) {
+    room.isOwner = true;
+  }
+
   if (room) {
     res.render('details', {
       title: 'Accommodation Details',
