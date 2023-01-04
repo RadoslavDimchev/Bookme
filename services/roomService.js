@@ -28,6 +28,7 @@ async function create(roomData, ownerId) {
   const result = await Room.create(room);
   return result;
 }
+
 async function update(roomId, roomData) {
   const missing = Object.entries(roomData).filter(([k, v]) => !v);
   if (missing.length > 0) {
@@ -48,9 +49,14 @@ async function update(roomId, roomData) {
   return room;
 }
 
+async function deleteById(roomId) {
+  return Room.findByIdAndRemove(roomId);
+}
+
 module.exports = {
   getAll,
   getById,
   create,
-  update
+  update,
+  deleteById
 };
