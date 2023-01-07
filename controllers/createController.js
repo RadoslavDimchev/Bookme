@@ -1,4 +1,5 @@
 const { create } = require('../services/roomService');
+const { parseError } = require('../utils/parser');
 
 const createController = require('express').Router();
 
@@ -16,7 +17,8 @@ createController.post('/', async (req, res) => {
   } catch (error) {
     res.render('create', {
       title: 'Request Error',
-      error: error.message.split('\n')
+      body: req.body,
+      error: parseError(error)
     });
   }
 });

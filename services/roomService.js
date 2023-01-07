@@ -11,12 +11,12 @@ function getById(id) {
 
 async function create(roomData, ownerId) {
   const room = {
-    name: roomData.name,
-    description: roomData.description,
-    city: roomData.city,
-    beds: Number(roomData.beds),
-    price: Number(roomData.price),
-    imgUrl: roomData.imgUrl,
+    name: roomData.name.trim(),
+    description: roomData.description.trim(),
+    city: roomData.city.trim(),
+    beds: Number(roomData.beds.trim()),
+    price: Number(roomData.price.trim()),
+    imgUrl: roomData.imgUrl.trim(),
     owner: ownerId
   };
 
@@ -37,12 +37,12 @@ async function update(roomId, roomData) {
 
   const room = await Room.findById(roomId);
 
-  room.name = roomData.name;
-  room.description = roomData.description;
-  room.city = roomData.city;
-  room.beds = Number(roomData.beds);
-  room.price = Number(roomData.price);
-  room.imgUrl = roomData.imgUrl;
+  room.name = roomData.name.trim();
+  room.description = roomData.description.trim();
+  room.city = roomData.city.trim();
+  room.beds = Number(roomData.beds.trim());
+  room.price = Number(roomData.price.trim());
+  room.imgUrl = roomData.imgUrl.trim();
 
   await room.save();
 
