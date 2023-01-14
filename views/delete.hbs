@@ -1,14 +1,6 @@
 <section>
   <h1>Delete Accommodation</h1>
 
-  {{#if error}}
-  <div>
-    {{#each error}}
-    <p>{{this}}</p>
-    {{/each}}
-  </div>
-  {{/if}}
-
   <form class="aligned" action="/room/{{room._id}}/delete" method="post">
     {{#with room}}
     <label><span>Name</span><input type="text" name="name" value="{{name}}" disabled></label>

@@ -1,5 +1,4 @@
 const Facility = require('../models/Facility');
-const Room = require('../models/Room');
 
 
 async function getAllFacilities() {
@@ -13,8 +12,7 @@ async function createFacility(label, iconUrl) {
   });
 }
 
-async function addFacilities(roomId, facilityIds) {
-  const room = await Room.findById(roomId).populate('facilities');
+async function addFacilities(room, facilityIds) {
   const facilities = await Facility.find({ _id: { $in: facilityIds } });
 
   // Remove room ref from removed facilities
@@ -22,7 +20,7 @@ async function addFacilities(roomId, facilityIds) {
   console.log('To remove', toRemove.map(x => x.label));
   toRemove.forEach(f => {
     // Remove room from facility
-    f.rooms.splice(f.rooms.findIndex(rId => rId.toString() === roomId), 1);
+    f.rooms.splice(f.rooms.findIndex(rId => rId.toString() === room._id.toString()), 1);
     // Remove facility from room
     room.facilities.splice(room.facilities.findIndex(x => x._id.toString() === f._id.toString()), 1);
   });

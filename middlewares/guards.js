@@ -28,8 +28,19 @@ function hasRole(role) {
   };
 }
 
+function isOwner() {
+  return (req, res, next) => {
+    if (req.user && req.user._id.toString() === res.locals.room.owner.toString()) {
+      next();
+    } else {
+      res.redirect('/auth/login');
+    }
+  };
+}
+
 module.exports = {
   hasUser,
   isGuest,
-  hasRole
+  hasRole,
+  isOwner
 };

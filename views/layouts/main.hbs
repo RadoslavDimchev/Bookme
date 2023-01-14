@@ -48,6 +48,14 @@
       </nav>
     </header>
 
+    {{#if error}}
+    <div>
+      {{#each error.messages}}
+      <p>{{this}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+
     <main>
       {{{body}}}
     </main>

@@ -1,14 +1,6 @@
 <section>
   <h1>Edit Accommodation</h1>
 
-  {{#if error}}
-  <div>
-    {{#each error.messages}}
-    <p>{{this}}</p>
-    {{/each}}
-  </div>
-  {{/if}}
-
   <form class="aligned" action="/room/{{room._id}}/edit" method="post">
     <label><span>Name</span><input {{#if error.fields.name}}class="field-error" {{/if}} type="text" name="name"
         value="{{room.name}}"></label>

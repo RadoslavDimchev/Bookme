@@ -1,9 +1,9 @@
 const facilityController = require('express').Router();
-
 const { body, validationResult } = require('express-validator');
-const { hasRole } = require('../middlewares/guards');
+
+const { hasRole, isOwner } = require('../middlewares/guards');
+const preload = require('../middlewares/preload');
 const { createFacility, getAllFacilities, addFacilities } = require('../services/facilityService');
-const { getById } = require('../services/roomService');
 const { parseError } = require('../utils/parser');
 
 
@@ -15,10 +15,8 @@ facilityController.get('/create', hasRole('admin'), (req, res) => {
 
 facilityController.post('/create', hasRole('admin'),
   body('label')
-    .trim()
     .notEmpty().withMessage('Label is required!'),
   body('iconUrl')
-    .trim()
     .isLength(10).withMessage('Icon URL must be at least 10 character long'),
   async (req, res) => {
     try {
@@ -37,14 +35,8 @@ facilityController.post('/create', hasRole('admin'),
     }
   });
 
-facilityController.get('/:roomId/decorateRoom', async (req, res) => {
-  const roomId = req.params.roomId;
-  const room = await getById(roomId);
-
-  if (!req.user || room.owner.toString() !== req.user._id.toString()) {
-    return res.redirect('/auth/login');
-  }
-
+facilityController.get('/:id/decorateRoom', preload(true), isOwner(), async (req, res) => {
+  const room = res.locals.room;
   const facilities = await getAllFacilities();
   facilities.forEach(f => {
     if (room.facilities.some(x => x._id.toString() === f._id.toString())) {
@@ -59,16 +51,13 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
   });
 });
 
-facilityController.post('/:roomId/decorateRoom', async (req, res) => {
-  const roomId = req.params.roomId;
-  const room = await getById(roomId);
-
-  if (!req.user || room.owner.toString() !== req.user._id.toString()) {
-    return res.redirect('/auth/login');
+facilityController.post('/:id/decorateRoom', preload(), isOwner(), async (req, res) => {
+  try {
+    await addFacilities(res.locals.room, Object.keys(req.body));
+    res.redirect(`/facility/${req.params.id}/decorateRoom`);
+  } catch (error) {
+    res.redirect(`/facility/${req.params.id}/decorateRoom`);
   }
-
-  await addFacilities(roomId, Object.keys(req.body));
-  res.redirect('/facility/' + roomId + '/decorateRoom');
 });
 
 module.exports = facilityController;

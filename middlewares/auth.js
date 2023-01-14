@@ -9,7 +9,7 @@ module.exports = (jwtSecret) => (req, res, next) => {
       req.user = data;
     } catch (error) {
       res.clearCookie('jwt');
-      return res.redirect('/login');
+      return res.redirect('/auth/login');
     }
   }
 

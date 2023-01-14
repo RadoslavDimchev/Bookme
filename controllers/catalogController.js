@@ -1,3 +1,4 @@
+const preload = require('../middlewares/preload');
 const { getAll, getById } = require('../services/roomService');
 
 const catalogController = require('express').Router();
@@ -21,10 +22,8 @@ catalogController.get('/', async (req, res) => {
   });
 });
 
-catalogController.get('/:id', async (req, res) => {
-  const id = req.params.id;
-  const room = await getById(id);
-
+catalogController.get('/:id', preload(true), (req, res) => {
+  const room = res.locals.room;
   if (req.user && req.user._id.toString() === room.owner.toString()) {
     room.isOwner = true;
   }
@@ -37,7 +36,7 @@ catalogController.get('/:id', async (req, res) => {
   } else {
     res.render('roomNotFound', {
       title: 'Accommodation Details',
-      id
+      _id: req.params.id
     });
   }
 });

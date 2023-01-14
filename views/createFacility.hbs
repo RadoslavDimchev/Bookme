@@ -1,14 +1,6 @@
 <section>
   <h1>New Facility</h1>
 
-  {{#if error}}
-  <div>
-    {{#each error.messages}}
-    <p>{{this}}</p>
-    {{/each}}
-  </div>
-  {{/if}}
-
   <form class="aligned" action="/facility/create" method="post">
     <label><span>Label</span><input {{#if error.fields.label}}class="field-error" {{/if}} type="text" name="label"
         value="{{body.label}}"></label>

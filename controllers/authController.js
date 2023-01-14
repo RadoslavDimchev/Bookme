@@ -13,7 +13,6 @@ authController.get('/login', (req, res) => {
 });
 
 authController.post('/login',
-  body(['username', 'password']).trim(),
   async (req, res) => {
     try {
       const result = await login(req.body.username, req.body.password);
@@ -38,14 +37,11 @@ authController.get('/register', (req, res) => {
 
 authController.post('/register',
   body('username')
-    .trim()
     .notEmpty().withMessage('Username is required!').bail()
     .isAlphanumeric().withMessage('Username can contain only latin symbols!'),
   body('password')
-    .trim()
     .isLength({ min: 8 }).withMessage('Password must be at least 8 symbols!'),
   body('repass')
-    .customSanitizer((value, { req }) => value.trim())
     .custom((value, { req }) => value === req.body.password).withMessage('Passwords don\'t match!'),
   async (req, res) => {
     try {

@@ -9,14 +9,18 @@ function getById(id) {
   return Room.findById(id).populate('facilities').lean();
 }
 
+function getByIdRaw(id) {
+  return Room.findById(id).populate('facilities');
+}
+
 async function create(roomData, ownerId) {
   const room = {
-    name: roomData.name.trim(),
-    description: roomData.description.trim(),
-    city: roomData.city.trim(),
-    beds: Number(roomData.beds.trim()),
-    price: Number(roomData.price.trim()),
-    imgUrl: roomData.imgUrl.trim(),
+    name: roomData.name,
+    description: roomData.description,
+    city: roomData.city,
+    beds: Number(roomData.beds),
+    price: Number(roomData.price),
+    imgUrl: roomData.imgUrl,
     owner: ownerId
   };
 
@@ -25,27 +29,23 @@ async function create(roomData, ownerId) {
     throw new Error(missing.map(m => `${m[0]} is required!`).join('\n'));
   }
 
-  const result = await Room.create(room);
-  return result;
+  return Room.create(room);
 }
 
-async function update(roomId, roomData) {
+async function update(room, roomData) {
   const missing = Object.entries(roomData).filter(([k, v]) => !v);
   if (missing.length > 0) {
     throw new Error(missing.map(m => `${m[0]} is required!`).join('\n'));
   }
 
-  const room = await Room.findById(roomId);
-
-  room.name = roomData.name.trim();
-  room.description = roomData.description.trim();
-  room.city = roomData.city.trim();
-  room.beds = Number(roomData.beds.trim());
-  room.price = Number(roomData.price.trim());
-  room.imgUrl = roomData.imgUrl.trim();
+  room.name = roomData.name;
+  room.description = roomData.description;
+  room.city = roomData.city;
+  room.beds = Number(roomData.beds);
+  room.price = Number(roomData.price);
+  room.imgUrl = roomData.imgUrl;
 
   await room.save();
-
   return room;
 }
 
@@ -56,6 +56,7 @@ async function deleteById(roomId) {
 module.exports = {
   getAll,
   getById,
+  getByIdRaw,
   create,
   update,
   deleteById

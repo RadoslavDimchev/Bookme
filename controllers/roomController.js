@@ -1,75 +1,47 @@
-const { getById, update, deleteById } = require('../services/roomService');
-const { parseError } = require('../utils/parser');
-
 const roomController = require('express').Router();
 
+const { isOwner } = require('../middlewares/guards');
+const preload = require('../middlewares/preload');
+const { update, deleteById } = require('../services/roomService');
+const { parseError } = require('../utils/parser');
 
-roomController.get('/:id/edit', async (req, res) => {
-  const roomId = req.params.id;
-  const room = await getById(roomId);
 
-  if (!req.user || room.owner.toString() !== req.user._id.toString()) {
-    return res.redirect('/auth/login');
-  }
-
+roomController.get('/:id/edit', preload(true), isOwner(), (req, res) => {
   res.render('edit', {
     title: 'Edit Accomodation',
-    room
+    room: res.locals.room
   });
 });
 
-roomController.post('/:id/edit', async (req, res) => {
-  const roomId = req.params.id;
-  const room = await getById(roomId);
-
-  if (!req.user || room.owner.toString() !== req.user._id.toString()) {
-    return res.redirect('/auth/login');
-  }
-
+roomController.post('/:id/edit', preload(), isOwner(), async (req, res) => {
   try {
-    const result = await update(roomId, req.body);
+    const result = await update(res.locals.room, req.body);
     res.redirect('/catalog/' + result.id);
   } catch (error) {
-    req.body._id = roomId;
     res.render('edit', {
       title: 'Edit Accomodation',
-      room: req.body,
+      room: Object.assign({ _id: req.params.id }, req.body),
       error: parseError(error)
     });
   }
 });
 
-roomController.get('/:id/delete', async (req, res) => {
-  const roomId = req.params.id;
-  const room = await getById(roomId);
-
-  if (!req.user || room.owner.toString() !== req.user._id.toString()) {
-    return res.redirect('/auth/login');
-  }
-
+roomController.get('/:id/delete', preload(true), isOwner(), (req, res) => {
   res.render('delete', {
     title: 'Delete Accomodation',
-    room
+    room: res.locals.room
   });
 });
 
-roomController.post('/:id/delete', async (req, res) => {
-  const roomId = req.params.id;
-  const room = await getById(roomId);
-
-  if (!req.user || room.owner.toString() !== req.user._id.toString()) {
-    return res.redirect('/auth/login');
-  }
-
+roomController.post('/:id/delete', preload(), isOwner(), async (req, res) => {
   try {
-    await deleteById(roomId);
+    await deleteById(req.params.id);
     res.redirect('/catalog');
   } catch (error) {
-    req.body._id = roomId;
     res.render('delete', {
       title: 'Delete Accomodation',
-      error: error.message.split('\n'),
-      room: req.body
+      error: parseError(error),
+      room: Object.assign({ _id: req.params.id }, req.body)
     });
   }
 });
