@@ -1,9 +1,9 @@
 :root {
-  --lime-green: #32cd30;
-  --green: #2c5e1a;
-  --forest-green: #1a4314;
+  --green: #27ae60;
+  --dark-green: #219150;
   --seafoam-green: #b2d2a4;
 
   --white: #fff;
-  --red: rgb(199, 0, 0);
+  --red: rgb(255, 0, 0);
+  --gray: #444;
 }

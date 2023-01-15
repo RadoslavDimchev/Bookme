@@ -1,5 +1,5 @@
 header {
-  background: #27ae60;
+  background: var(--green);
 }
 
 header nav span {
@@ -18,12 +18,12 @@ header nav:last-child {
 }
 
 header nav a {
-  color: #fff;
+  color: var(--white);
   display: inline-block;
   padding: 1.7rem;
   font-size: 1.7rem;
 }
 
 header nav a:hover {
-  background: #219150;
+  background: var(--dark-green);
 }

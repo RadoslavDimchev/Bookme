@@ -1,11 +1,10 @@
-<section>
-  <h1>New Facility</h1>
-
-  <form class="aligned" action="/facility/create" method="post">
+<section class="container">
+  <form action="/facility/create" method="post">
+    <h1>New Facility</h1>
     <label><span>Label</span><input {{#if error.fields.label}}class="field-error" {{/if}} type="text" name="label"
         value="{{body.label}}"></label>
     <label><span>Icon URL</span><input {{#if error.fields.iconUrl}}class="field-error" {{/if}} type="text"
         name="iconUrl" value="{{body.iconUrl}}"></label>
-    <button>Create</button>
+    <button class="btn">Create</button>
   </form>
 </section>

@@ -1,19 +1,16 @@
-<section>
-  <h1>{{room.name}}</h1>
-  <div>
-    <img class="img" src="{{room.imgUrl}}" alt="room image">
-  </div>
-  <div>
-    <p>Facilities:</p>
-
+<section class="container">
     <form action="/facility/{{room._id}}/decorateRoom" method="post">
+      <h1>{{room.name}}</h1>
+      <div class="center">
+      <img class="img" src="{{room.imgUrl}}" alt="room image">
+      </div>
+      <h3>Facilities:</h3>
       <ul>
         {{#each facilities}}
         <li><label><input type="checkbox" name="{{_id}}" {{#if checked}}checked{{/if}}> {{label}} <img
               class="facility-icon" src="{{iconUrl}}" alt="icon"></label></li>
         {{/each}}
       </ul>
-      <button>Confirm Facilities</button>
+      <button class="btn">Confirm Facilities</button>
     </form>
-  </div>
 </section>

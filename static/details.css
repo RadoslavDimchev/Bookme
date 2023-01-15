@@ -1,0 +1,11 @@
+.details {
+  margin: 50px auto;
+  max-width: 500px;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #00000070;
+}
+
+.facility-icon {
+  width: 24px;
+  height: 24px;
+}

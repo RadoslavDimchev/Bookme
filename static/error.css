@@ -1,0 +1,13 @@
+.field-error {
+  border: 2px solid var(--red);
+}
+
+.error-container {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.error-container p {
+  font-size: 2rem;
+  color: var(--red);
+}

@@ -4,3 +4,6 @@
 @import url('./site.css');
 @import url('./header.css');
 @import url('./footer.css');
+@import url('./catalog.css');
+@import url('./details.css');
+@import url('./error.css');

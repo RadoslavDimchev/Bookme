@@ -1,4 +1,4 @@
-<section>
+<section class="container center">
   <h1>Catalog</h1>
 
   {{!-- <form class="aligned" method="get">
@@ -10,7 +10,7 @@
   </form> --}}
 
   {{#if rooms}}
-  <ul>
+  <ul class="catalog-list">
     {{#each rooms}}
     {{>roomCard}}
     {{/each}}
@@ -18,7 +18,7 @@
   {{else}}
   <div>
     <p>Nothing here yet. Be the first!</p>
-    <a href="/create">Host Accommodation</a>
+    <a class="btn" href="/create">Host Accommodation</a>
   </div>
   {{/if}}
 </section>

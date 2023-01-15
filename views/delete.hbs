@@ -1,15 +1,20 @@
-<section>
-  <h1>Delete Accommodation</h1>
-
-  <form class="aligned" action="/room/{{room._id}}/delete" method="post">
+<section class="container">
+  <form action="/room/{{room._id}}/delete" method="post">
+    <h1>Delete Accommodation</h1>
     {{#with room}}
-    <label><span>Name</span><input type="text" name="name" value="{{name}}" disabled></label>
-    <label><span>City</span><input type="text" name="city" value="{{city}}" disabled></label>
-    <label><span>Beds</span><input type="number" name="beds" value="{{beds}}" disabled></label>
-    <label><span>Price per night</span><input type="number" name="price" value="{{price}}" disabled></label>
-    <label><span>Image URL</span><input type="text" name="imgUrl" value="{{imgUrl}}" disabled></label>
-    <label><span>Description</span><textarea type="text" name="description" disabled>{{description}}</textarea></label>
-    <button>Delete</button>
+    <label>Name</label>
+    <input type="text" name="name" value="{{name}}" disabled>
+    <label>City</label>
+    <input type="text" name="city" value="{{city}}" disabled>
+    <label>Beds</label>
+    <input type="number" name="beds" value="{{beds}}" disabled>
+    <label>Price per night</label>
+    <input type="number" name="price" value="{{price}}" disabled>
+    <label>Image URL</label>
+    <input type="text" name="imgUrl" value="{{imgUrl}}" disabled>
+    <label>Description</label>
+    <textarea type="text" name="description" disabled>{{description}}</textarea>
+    <button class="btn">Delete</button>
     {{/with}}
   </form>
 </section>

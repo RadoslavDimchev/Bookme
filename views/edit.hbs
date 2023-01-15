@@ -1,19 +1,19 @@
-<section>
-  <h1>Edit Accommodation</h1>
-
-  <form class="aligned" action="/room/{{room._id}}/edit" method="post">
-    <label><span>Name</span><input {{#if error.fields.name}}class="field-error" {{/if}} type="text" name="name"
-        value="{{room.name}}"></label>
-    <label><span>City</span><input {{#if error.fields.city}}class="field-error" {{/if}} type="text" name="city"
-        value="{{room.city}}"></label>
-    <label><span>Beds</span><input {{#if error.fields.beds}}class="field-error" {{/if}} type="number" name="beds"
-        value="{{room.beds}}"></label>
-    <label><span>Price per night</span><input {{#if error.fields.price}}class="field-error" {{/if}} type="number"
-        name="price" value="{{room.price}}"></label>
-    <label><span>Image URL</span><input {{#if error.fields.imgUrl}}class="field-error" {{/if}} type="text" name="imgUrl"
-        value="{{room.imgUrl}}"></label>
-    <label><span>Description</span><textarea {{#if error.fields.description}}class="field-error" {{/if}} type="text"
-        name="description">{{room.description}}</textarea></label>
-    <button>Update</button>
-  </form>
+<section class="container">
+    <form class="aligned" action="/room/{{room._id}}/edit" method="post">
+        <h1>Edit Accommodation</h1>
+        <label>Name</label>
+        <input {{#if error.fields.name}}class="field-error" {{/if}} type="text" name="name" value="{{room.name}}">
+        <label>City</label>
+        <input {{#if error.fields.city}}class="field-error" {{/if}} type="text" name="city" value="{{room.city}}">
+        <label>Beds</label>
+        <input {{#if error.fields.beds}}class="field-error" {{/if}} type="number" name="beds" value="{{room.beds}}">
+        <label>Price per night</label>
+        <input {{#if error.fields.price}}class="field-error" {{/if}} type="number" name="price" value="{{room.price}}">
+        <label>Image URL</label>
+        <input {{#if error.fields.imgUrl}}class="field-error" {{/if}} type="text" name="imgUrl" value="{{room.imgUrl}}">
+        <label>Description</label>
+        <textarea {{#if error.fields.description}}class="field-error" {{/if}} type="text"
+            name="description">{{room.description}}</textarea>
+        <button class="btn">Update</button>
+    </form>
 </section>

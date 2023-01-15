@@ -18,7 +18,7 @@
       {{#if hasUser}}
       <span>Welcome, {{username}}</span>
       <a href="/create">Host</a>
-      <a href="/facility/create">Create Facility</a>
+      {{#if isAdmin}}<a href="/facility/create">Create Facility</a>{{/if}}
       <a href="/auth/logout">Logout</a>
       {{else}}
       <a href="/auth/login">Login</a>

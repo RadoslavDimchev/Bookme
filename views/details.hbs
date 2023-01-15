@@ -1,24 +1,25 @@
-<section>
+<section class="container center details">
   {{#with room}}
   <h1>{{name}} Details</h1>
-  <p>{{description}}</p>
+  <p>Location: {{city}}</p>
   <p>Price per night: {{price}}€</p>
+  <p>{{description}}</p>
   <div>
     {{#if imgUrl}}
     <img class="img" src="{{imgUrl}}" alt="room image">
     {{/if}}
 
   </div>
-  <ul>
+  <ul class="details-list">
     {{#each facilities}}
     <li>{{label}} <img class="facility-icon" src="{{iconUrl}}" alt="icon"></li>
     {{/each}}
   </ul>
 
   {{#if isOwner}}
-  <a href="/room/{{_id}}/edit">Edit</a>
-  <a href="/facility/{{_id}}/decorateRoom">Facilities</a>
-  <a href="/room/{{_id}}/delete">Delete</a>
+  <a class="btn" href="/room/{{_id}}/edit">Edit</a>
+  <a class="btn" href="/facility/{{_id}}/decorateRoom">Facilities</a>
+  <a class="btn" href="/room/{{_id}}/delete">Delete</a>
   {{/if}}
 
   {{/with}}
