@@ -10,60 +10,38 @@
 </head>
 
 <body>
-  <div id="page-content">
-    <header>
-      <a href="/">
-        <span>Bookme</span>
-      </a>
+  <header>
+    <nav class="nav">
+      <a href="/">Bookme</a>
+      <a href="/catalog">Browse</a>
+      <a href="/about">About</a>
       {{#if hasUser}}
       <span>Welcome, {{username}}</span>
+      <a href="/create">Host</a>
+      <a href="/facility/create">Create Facility</a>
+      <a href="/auth/logout">Logout</a>
+      {{else}}
+      <a href="/auth/login">Login</a>
+      <a href="/auth/register">Register</a>
       {{/if}}
-      <nav class="nav">
-        <ul>
-          <li>
-            <a href="/catalog">Browse</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          {{#if hasUser}}
-          <li>
-            <a href="/create">Host</a>
-          </li>
-          <li>
-            <a href="/facility/create">Create Facility</a>
-          </li>
-          <li>
-            <a href="/auth/logout">Logout</a>
-          </li>
-          {{else}}
-          <li>
-            <a href="/auth/login">Login</a>
-          </li>
-          <li>
-            <a href="/auth/register">Register</a>
-          </li>
-          {{/if}}
-        </ul>
-      </nav>
-    </header>
+    </nav>
+  </header>
 
-    {{#if error}}
-    <div>
-      {{#each error.messages}}
-      <p>{{this}}</p>
-      {{/each}}
-    </div>
-    {{/if}}
-
-    <main>
-      {{{body}}}
-    </main>
-
-    <footer>
-      Radoslav Dimchev &copy; 2022
-    </footer>
+  {{#if error}}
+  <div class="error-container">
+    {{#each error.messages}}
+    <p>{{this}}</p>
+    {{/each}}
   </div>
+  {{/if}}
+
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer>
+    Radoslav Dimchev &copy; 2022
+  </footer>
 </body>
 
 </html>

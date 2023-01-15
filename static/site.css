@@ -1,0 +1,115 @@
+* {
+  font-family: 'Varela Round', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--seafoam-green);
+}
+
+.facility-icon {
+  width: 24px;
+  height: 24px;
+}
+
+button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.9rem 3rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: #27ae60;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+button:hover {
+  background: #219150;
+}
+
+.container {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container form {
+  background: #fff;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  width: 40rem;
+  padding: 2rem;
+  box-shadow: 0 0 10px #00000070;
+  border-radius: 0.5rem;
+  margin-bottom: 10rem;
+}
+
+.container form h1 {
+  font-size: 2.5rem;
+  color: #444;
+  text-align: center;
+}
+
+.container form label {
+  display: block;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+input, textarea {
+  resize: none;
+  width: 100%;
+  margin: 0.7rem 0;
+  font-size: 1.6rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 1.2rem;
+  color: #444;
+  text-transform: none;
+}
+
+.container form button {
+  text-align: center;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.container form p {
+  padding-top: 0.8rem;
+  color: #666;
+  font-size: 1.5rem;
+}
+
+.container form p a {
+  color: #27ae60;
+  text-decoration: underline;
+}
+
+
+
+.field-error {
+  border: 2px solid red;
+}
+
+.error-container {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.error-container p {
+  font-size: 2rem;
+  color: red;
+}

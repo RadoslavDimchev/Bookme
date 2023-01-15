@@ -1,10 +1,12 @@
-<section>
-  <h1>Login</h1>
+<section class="container">
 
-  <form class="aligned" action="/auth/login" method="post">
-    <label><span>Username</span><input type="text" name="username" value="{{body.username}}"></label>
-    <label><span>Password</span><input type="password" name="password"></label>
-    <button>Sigh in</button>
+  <form action="/auth/login" method="post">
+    <h1>Login</h1>
+    <label>Username</label>
+    <input type="text" name="username" value="{{body.username}}">
+    <label>Password</label>
+    <input type="password" name="password">
+    <button>Sign in</button>
+    <p>Don't have an account? <a href="/auth/register">Sign up</a></p>
   </form>
-  <p>Don't have an account? <a href="/auth/register">Sign up here</a></p>
 </section>

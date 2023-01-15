@@ -1,0 +1,29 @@
+header {
+  background: #27ae60;
+}
+
+header nav span {
+  color: #fff;
+  font-size: 1.9rem;
+  margin-left: 43%;
+  margin-right: 3%;
+}
+
+header nav:first-child {
+  margin-left: 50px;
+}
+
+header nav:last-child {
+  margin-right: 50px;
+}
+
+header nav a {
+  color: #fff;
+  display: inline-block;
+  padding: 1.7rem;
+  font-size: 1.7rem;
+}
+
+header nav a:hover {
+  background: #219150;
+}

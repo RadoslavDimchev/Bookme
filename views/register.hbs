@@ -1,11 +1,16 @@
-<section>
-  <h1>Register</h1>
-
+<section class="container">
   <form class="aligned" action="/auth/register" method="post">
-    <label><span>Username</span><input {{#if error.fields.username}}class="field-error"{{/if}} type="text" name="username" value="{{body.username}}"></label>
-    <label><span>Password</span><input {{#if error.fields.password}}class="field-error"{{/if}} type="password" name="password"></label>
-    <label><span>Repeat</span><input {{#if error.fields.repass}}class="field-error"{{/if}} type="password" name="repass"></label>
+    <h1>Register</h1>
+
+    <label>Username</label>
+    <input {{#if error.fields.username}}class="field-error" {{/if}} type="text" name="username"
+      value="{{body.username}}">
+    <label>Password</label>
+    <input {{#if error.fields.password}}class="field-error" {{/if}} type="password" name="password">
+    <label>Repeat</label>
+    <input {{#if error.fields.repass}}class="field-error" {{/if}} type="password" name="repass">
+
     <button>Sign up</button>
+    <p>Already have an account? <a href="/auth/login">Sign in</a></p>
   </form>
-  <p>Already have an account? <a href="/auth/login">Sign in here</a></p>
 </section>

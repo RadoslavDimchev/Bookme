@@ -1,19 +1,21 @@
-<section>
-  <h1>New Accommodation</h1>
+<section class="container">
+    <form class="aligned" action="/create" method="post">
+        <h1>New Accommodation</h1>
 
-  <form class="aligned" action="/create" method="post">
-    <label><span>Name</span><input {{#if error.fields.name}}class="field-error"{{/if}} type="text" name="name"
-        value="{{body.name}}"></label>
-    <label><span>City</span><input {{#if error.fields.city}}class="field-error"{{/if}} type="text" name="city"
-        value="{{body.city}}"></label>
-    <label><span>Beds</span><input {{#if error.fields.beds}}class="field-error"{{/if}} type="number" name="beds"
-        value="{{body.beds}}"></label>
-    <label><span>Price per night</span><input {{#if error.fields.price}}class="field-error"{{/if}} type="number"
-        name="price" value="{{body.price}}"></label>
-    <label><span>Image URL</span><input {{#if error.fields.imgUrl}}class="field-error"{{/if}} type="text" name="imgUrl"
-        value="{{body.imgUrl}}"></label>
-    <label><span>Description</span><textarea {{#if error.fields.description}}class="field-error"{{/if}} type="text"
-        name="description">{{body.description}}</textarea></label>
-    <button>Create</button>
-  </form>
+        <label>Name</label>
+        <input {{#if error.fields.name}}class="field-error" {{/if}} type="text" name="name" value="{{body.name}}">
+        <label>City</label>
+        <input {{#if error.fields.city}}class="field-error" {{/if}} type="text" name="city" value="{{body.city}}">
+        <label>Beds</label>
+        <input {{#if error.fields.beds}}class="field-error" {{/if}} type="number" name="beds" value="{{body.beds}}">
+        <label>Price per night</label>
+        <input {{#if error.fields.price}}class="field-error" {{/if}} type="number" name="price" value="{{body.price}}">
+        <label>Image URL</label>
+        <input {{#if error.fields.imgUrl}}class="field-error" {{/if}} type="text" name="imgUrl" value="{{body.imgUrl}}">
+        <label>Description</label>
+        <textarea {{#if error.fields.description}}class="field-error" {{/if}} type="text"
+            name="description">{{body.description}}</textarea>
+
+        <button>Create</button>
+    </form>
 </section>
