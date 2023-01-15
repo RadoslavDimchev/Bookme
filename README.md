@@ -35,6 +35,6 @@ Used libraries `mongoose, bcrypt, jsonwebtoken, cookie-parser, express-validator
 - create facilities
 
 ## Screenshots
-[catalog](./static/screenshots/catalog.png)
-[details](./static/screenshots/details.png)
-[form-error](./static/screenshots/form-error.png)
+![catalog](./static/screenshots/catalog.png)
+![details](./static/screenshots/details.png)
+![form-error](./static/screenshots/form-error.png)
