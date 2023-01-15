@@ -33,3 +33,8 @@ Used libraries `mongoose, bcrypt, jsonwebtoken, cookie-parser, express-validator
 ### Admin
 - all logged in func
 - create facilities
+
+## Screenshots
+[catalog](./static/screenshots/catalog.png)
+[details](./static/screenshots/details.png)
+[form-error](./static/screenshots/form-error.png)
